@@ -1,3 +1,5 @@
+language: generic
+
 sudo: required
 
 services:
@@ -7,5 +9,4 @@ before_install:
   - docker build -t tnduc91/docker-react -f Dockerfile.dev .
 
 scripts:
-  - docker run tnduc91/docker-react npm run test -- --coverage
-  
+  - docker run -e CI=true tnduc91/docker-react npm run test
